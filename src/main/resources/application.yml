@@ -10,7 +10,8 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: true # Enable service discovery for routing to other microservices based on Eureka registry
+              enabled: false # Enable service discovery for routing to other microservices based on Eureka registry
+              lower-case-service-id: true
 
 management:
   endpoints:
