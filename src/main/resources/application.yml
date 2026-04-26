@@ -1,0 +1,31 @@
+
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true # Enable service discovery for routing to other microservices based on Eureka registry
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "This microservice serves as the API gateway for routing requests to other microservices and handling cross-cutting concerns like authentication and rate limiting."
+    version: "1.0.0"
